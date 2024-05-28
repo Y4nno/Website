@@ -1,0 +1,47 @@
+document.getElementById('add-task-btn').addEventListener('click', function() {
+    const taskDate = document.getElementById('task-date').value;
+    const taskTime = document.getElementById('task-time').value;
+    const taskInput = document.getElementById('task-input').value.trim();
+    const taskDeadline = document.getElementById('task-deadline').value;
+
+    if (taskDate && taskTime && taskInput !== '' && taskDeadline) {
+        const taskList = document.getElementById('task-list');
+        const taskCard = document.createElement('div');
+        taskCard.classList.add('task-card');
+
+        taskCard.innerHTML = `
+            <div class="task-info">
+                <span><strong>Date:</strong> ${taskDate}</span>
+                <span><strong>Time:</strong> ${taskTime}</span>
+                <span><strong>Task:</strong> ${taskInput}</span>
+                <span><strong>Deadline:</strong> ${taskDeadline}</span>
+            </div>
+            <div>
+                <input type="checkbox" class="completed-checkbox">
+                <button class="delete-btn">Delete</button>
+            </div>
+        `;
+
+        taskList.appendChild(taskCard);
+
+        // Clear inputs
+        document.getElementById('task-date').value = '';
+        document.getElementById('task-time').value = '';
+        document.getElementById('task-input').value = '';
+        document.getElementById('task-deadline').value = '';
+
+        // Add delete functionality
+        taskCard.querySelector('.delete-btn').addEventListener('click', function() {
+            taskList.removeChild(taskCard);
+        });
+
+        // Add checkbox functionality
+        taskCard.querySelector('.completed-checkbox').addEventListener('change', function() {
+            if (this.checked) {
+                taskCard.classList.add('completed');
+            } else {
+                taskCard.classList.remove('completed');
+            }
+        });
+    }
+});
