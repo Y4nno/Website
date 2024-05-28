@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional To-Do List</title>
+    <link rel="stylesheet" href="Webdev css.css">
+</head>
+<body>
+
+    <main>
+        <div class="container">
+            <h2>Input Task</h2>
+            <div class="input-container">
+                <input type="date" id="task-date" placeholder="Date">
+                <input type="time" id="task-time" placeholder="Time">
+                <input type="text" id="task-input" placeholder="Task Description">
+                <input type="datetime-local" id="task-deadline" placeholder="Deadline">
+                <button id="add-task-btn">Add Task</button>
+            </div>
+            <h2>List</h2>
+            <div class="task-list-container" id="task-list">
+                <!-- Task cards will be appended here -->
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Webdev Project</p>
+    </footer>
+    <script src="Script.js"></script>
+</body>
+</html>
